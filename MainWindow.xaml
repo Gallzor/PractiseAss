@@ -5,18 +5,82 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PractiseAss"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="750" Width="800">
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="22" Margin="30,39,0,0" TextWrapping="Wrap" Name="loanAmountTextBox" VerticalAlignment="Top" Width="111"/>
         <Label Content="Loan Amount" Name="loanAmountLabel" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="170,39,0,0" TextWrapping="Wrap" Name="yearlyRentTextBox" VerticalAlignment="Top" Width="97" Height="22"/>
-        <Label Content="Yearly rent:" Name="yearlyRenthLabel" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Yearly rent:" Name="yearlyRentLabel" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top"/>
         <Button Content="Calculate Payment" Name="calculateMonthlyPaymentButton" Click="calculateMonthlyPaymentButton_Click" HorizontalAlignment="Left" Margin="462,37,0,0" VerticalAlignment="Top" Width="114"/>
-        <Label Content="Your montly repayment is:" Name="resultBmiLabel" HorizontalAlignment="Left" Margin="610,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Your montly repayment is:" Name="monthlyPaymentLabel" HorizontalAlignment="Left" Margin="610,10,0,0" VerticalAlignment="Top"/>
         <Label Content="" Name="resultMonthlyPayment" HorizontalAlignment="Left" Margin="628,34,0,0" VerticalAlignment="Top" Width="111"/>
         <Label Content="Duration:" HorizontalAlignment="Left" Margin="308,10,0,0" Name="durationLabel" VerticalAlignment="Top" RenderTransformOrigin="0.274,-0.218"/>
-        <TextBox HorizontalAlignment="Left" Margin="296,37,0,0" TextWrapping="Wrap" Name="durationTextBox" VerticalAlignment="Top" Width="130" Height="20"/>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="603,10,35,367"/>
+        <TextBox HorizontalAlignment="Left" Margin="308,36,0,0" TextWrapping="Wrap" Name="durationTextBox" VerticalAlignment="Top" Width="41" Height="24"/>
+        <Label Content="years" HorizontalAlignment="Left" Margin="354,34,0,0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.955,0.079"/>
+        <Label Content="Length:" Name="lengthLabel" HorizontalAlignment="Left" Margin="33,86,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="33,117,0,0" TextWrapping="Wrap" Name="lengthTextBox" VerticalAlignment="Top" Width="79" Height="18"/>
+        <Label Content="Weight:" Name="weightLabel" HorizontalAlignment="Left" Margin="217,86,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="204,116,0,0" TextWrapping="Wrap" Name="weightTextBox" VerticalAlignment="Top" Width="82" Height="18"/>
+        <Button Content="Calculate your BMI" Name="calculateBmiButton" Click="calculateBmiButton_Click" HorizontalAlignment="Left" Margin="462,116,0,0" VerticalAlignment="Top" Width="115"/>
+        <Label Content="Your BMI is:" Name="yourBmiLabel" HorizontalAlignment="Left" Margin="648,86,0,0" VerticalAlignment="Top"/>
+        <Label Content="" Name="resultBmiLabel" HorizontalAlignment="Left" Margin="674,113,0,0" VerticalAlignment="Top"/>
+        <Label Content="cm" HorizontalAlignment="Left" Margin="117,113,0,0" VerticalAlignment="Top"/>
+        <Label Content="cm" HorizontalAlignment="Left" Margin="303,113,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="74,217,0,0" TextWrapping="Wrap" Name="portionsTextBox" VerticalAlignment="Top" Width="38" Height="22"/>
+        <Label Content="Your portion size is:" Name="yourPortionSizeLabel" HorizontalAlignment="Left" Margin="33,186,0,0" VerticalAlignment="Top"/>
+        <Label Content="You will need:" HorizontalAlignment="Left" Margin="185,213,0,0" VerticalAlignment="Top"/>
+        <Label Content="Regular recipe has the following ingredients:" HorizontalAlignment="Left" Margin="30,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="Flour:" HorizontalAlignment="Left" Margin="303,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="" Name="flourLabel" HorizontalAlignment="Left" Margin="299,213,0,0" VerticalAlignment="Top" Width="68"/>
+        <Label Content="Sugar:" HorizontalAlignment="Left" Margin="400,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="Butter:" HorizontalAlignment="Left" Margin="500,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="Eggs:" HorizontalAlignment="Left" Margin="628,160,0,0" VerticalAlignment="Top" Width="49"/>
+        <Label Content="" Name="sugarLabel" HorizontalAlignment="Left" Margin="384,213,0,0" VerticalAlignment="Top" Width="82"/>
+        <Label Content="" Name="butterLabel" HorizontalAlignment="Left" Margin="487,213,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="" Name="eggsLabel" HorizontalAlignment="Left" Margin="614,213,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Content="100 grams" HorizontalAlignment="Left" Margin="300,181,0,0" VerticalAlignment="Top" Height="27"/>
+        <Label Content="50 grams" HorizontalAlignment="Left" Margin="392,182,0,0" VerticalAlignment="Top" Height="26" Width="66"/>
+        <Label Content="50 grams" HorizontalAlignment="Left" Margin="491,182,0,0" VerticalAlignment="Top" Width="82"/>
+        <Label Content="1 piece" HorizontalAlignment="Left" Margin="615,181,0,0" VerticalAlignment="Top" Width="105"/>
+        <Button Content="Calculate ingredients" Name="calculateIngredientsButton" Click="calculateIngredientsButton_Click" HorizontalAlignment="Left" Margin="33,244,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="Number of Pizzas:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,310,0,0"/>
+        <TextBox x:Name="numberOfPizzasTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,310,0,0" Width="100"/>
+
+        <Label Content="Pizza Diameter (cm):" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,340,0,0"/>
+        <TextBox x:Name="pizzaDiameterTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,340,0,0" Width="100"/>
+
+        <Button Content="Calculate Ingredients" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,370,0,0" Width="150" Click="calculatePizzaIngredientsButton_Click"/>
+
+        <Label x:Name="flourPizzaLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,400,0,0"/>
+        <Label x:Name="cheesePizzaLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,420,0,0"/>
+        <Label x:Name="tomatoSaucePizzaLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,440,0,0"/>
+
+        <!-- New Elements for Cafe Calculation -->
+        <Label Content="Number of Coffees:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,470,0,0"/>
+        <TextBox x:Name="coffeesTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,470,0,0" Width="100"/>
+
+        <Label Content="Price per Coffee:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,500,0,0"/>
+        <TextBox x:Name="coffeePriceTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,500,0,0" Width="100"/>
+
+        <Label Content="Number of Teas:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,530,0,0"/>
+        <TextBox x:Name="teasTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,530,0,0" Width="100"/>
+
+        <Label Content="Price per Tea:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,560,0,0"/>
+        <TextBox x:Name="teaPriceTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,560,0,0" Width="100"/>
+
+        <Label Content="Number of Juices:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,590,0,0"/>
+        <TextBox x:Name="juicesTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,590,0,0" Width="100"/>
+
+        <Label Content="Price per Juice:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,620,0,0"/>
+        <TextBox x:Name="juicePriceTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,620,0,0" Width="100"/>
+
+        <Button Content="Calculate Total" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,650,0,0" Width="150" Click="calculateCafeTotalButton_Click"/>
+
+        <Label x:Name="totalCoffeeLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="299,466,0,0"/>
+        <Label x:Name="totalTeaLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="299,500,0,0"/>
+        <Label x:Name="totalJuiceLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="299,552,0,0"/>
+        <Label x:Name="grandTotalLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="299,590,0,0"/>
 
     </Grid>
 </Window>
