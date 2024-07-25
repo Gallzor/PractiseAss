@@ -197,5 +197,50 @@ namespace PractiseAss
             totalJuiceLabel.Content = $"Total Juice Cost: {totalJuiceCost:F2} euros";
             grandTotalLabel.Content = $"Grand Total: {grandTotal:F2} euros";
         }
+
+        private void resultInputNameButton_Click(object sender, RoutedEventArgs e)
+        {
+            string firstName;
+            string lastName;
+
+            firstName = firstNameTextBox.Text;
+            lastName = lastNameTextBox.Text;
+
+            //ShowName(firstName);
+            ShowNames(firstName, lastName);
+        }
+
+        private void ShowName(string firstName)
+        {
+            MessageBox.Show("Your first name is: " + firstName);
+        }
+        private void ShowNames(string firstName, string lastName)
+        {
+            MessageBox.Show("Your first name is: " + firstName + " and your last name is: " + lastName);
+        }
+
+        private void resultTotalIncomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            double yearlySalary;
+            int workedYears;
+            double totalIncome;
+
+            workedYears = Convert.ToInt32(yearsWorkedTextBox.Text);
+            yearlySalary = Convert.ToDouble(yearlySalaryTextBox.Text);
+            totalIncome = CalculateTotalIncome(yearlySalary, workedYears);
+
+           ShowTotalIncome(totalIncome);
+
+        }
+
+        private double CalculateTotalIncome(double yearlySalary, int workedYears)
+        {
+            return yearlySalary * workedYears;
+        }
+
+        private void ShowTotalIncome(double totalIncome)
+        {
+            MessageBox.Show("Your income over the past years is " + totalIncome);
+        }
     }
 }
