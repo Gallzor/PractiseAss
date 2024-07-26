@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,25 @@ namespace PractiseAss
         public MainWindow()
         {
             InitializeComponent();
+
+            countLabel.Content = Convert.ToString(_carCount);
+
+            verticalSlider.Minimum = 0;
+            verticalSlider.Maximum = paperCanvas.Height;
+
+            horizontalSlider.Minimum = 0;
+            horizontalSlider.Maximum = paperCanvas.Width;
+
+            verticalLabel.Content = Convert.ToString(verticalSlider.Value);
+            horizontalLabel.Content = Convert.ToString(horizontalSlider.Value);
+
+            CreateEllipse();
+
+            _number = 1;
+            resultNumberLabel.Content = Convert.ToString(_number);
+
+            celciusToFahreinheitSlider.Minimum = 0;
+            celciusToFahreinheitSlider.Maximum = 100;
         }
         private void calculateMonthlyPaymentButton_Click(object sender, RoutedEventArgs e)
         {
@@ -241,6 +261,138 @@ namespace PractiseAss
         private void ShowTotalIncome(double totalIncome)
         {
             MessageBox.Show("Your income over the past years is " + totalIncome);
+        }
+
+        private int _carCount = 0;
+        private void enterButton_Click(object sender, RoutedEventArgs e)
+        {
+            _carCount = _carCount + 1;
+            countLabel.Content = _carCount;
+        }
+
+        private void leavingButton_Click(object sender, RoutedEventArgs e)
+        {
+            _carCount = _carCount - 1;
+            countLabel.Content = _carCount;
+        }
+
+        private void horizontalSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            int horizontal = Convert.ToInt32(horizontalSlider.Value);
+            horizontalLabel.Content = Convert.ToString(horizontal);
+            UpdateEllipse();
+        }
+
+        private void verticalSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            int vertical = Convert.ToInt32(verticalSlider.Value);
+            verticalLabel.Content = Convert.ToString(vertical);
+            UpdateEllipse();
+        }
+
+        private Ellipse _ellipse;
+        private void CreateEllipse()
+        {
+            _ellipse = new Ellipse();
+            _ellipse.Width = horizontalSlider.Value;
+            _ellipse.Height = verticalSlider.Value;
+            _ellipse.Stroke = new SolidColorBrush(Colors.Blue);
+            _ellipse.Fill = new SolidColorBrush(Colors.Pink);
+            _ellipse.Margin = new Thickness(0, 0, 0, 0);
+            paperCanvas.Children.Add(_ellipse);
+        }
+
+        private void UpdateEllipse()
+        {
+            _ellipse.Width = horizontalSlider.Value;
+            _ellipse.Height = verticalSlider.Value;
+        }
+
+        private void changeSliderValueButton_Click(object sender, RoutedEventArgs e)
+        {
+           double max = Convert.ToDouble(maximumTextBox.Text);
+           double min = Convert.ToDouble(minimumTextBox.Text);
+
+            minMaxSlider.Minimum = min;
+            minMaxSlider.Maximum = max;
+
+        }
+
+        private void minMaxSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            double max;
+            double min;
+
+            min = minMaxSlider.Minimum;
+            max = minMaxSlider.Maximum;
+
+            ShowMinMaxValueSlider(min, max);
+        }
+
+        private void ShowMinMaxValueSlider(double max, double min)
+        {
+            MessageBox.Show("The slider max is: " + max + " The slider min is: " + min);
+        }
+
+        private int _number;
+        private void increaseNumberButton_Click(object sender, RoutedEventArgs e)
+        {
+            _number++;
+            resultNumberLabel.Content = Convert.ToString(_number);
+        }
+
+        private int _rolledNumber;
+        private int _sumOfNumbers;
+        private int _averageOfNumbers;
+        private int _countOfNumbers;
+        private void randomNumberButton_Click(object sender, RoutedEventArgs e)
+        {
+            Random random = new Random();
+            _rolledNumber = random.Next(200, 400);
+
+            CalculateSumOfNumbers(_rolledNumber);
+            _countOfNumbers++;
+            CalculateAverageOfNumbers(_sumOfNumbers, _countOfNumbers);
+
+            ShowRandomNumberResults(_rolledNumber, _sumOfNumbers, _averageOfNumbers);
+        }
+
+        private int CalculateSumOfNumbers(int rolledNumber)
+        {
+            return _sumOfNumbers += rolledNumber;
+        }
+
+        private int CalculateAverageOfNumbers(int sumOfNumbers, int countOfNumbers)
+        {
+            return _averageOfNumbers = sumOfNumbers / countOfNumbers;
+        }
+
+        private void ShowRandomNumberResults(int rolledNumber, int sumOfNumbers, int averageOfNumbers)
+        {
+            randomNumberLabel.Content = rolledNumber.ToString();
+            totalSumOfNumbersLabel.Content = sumOfNumbers.ToString();
+            averageNumberLabel.Content = averageOfNumbers.ToString();
+        }
+
+        private double _celcius;
+        private double _fahrenheit;
+
+        private void celciusToFahreinheitButton_Click(object sender, RoutedEventArgs e)
+        {
+            _celcius = Convert.ToInt32(inputCelciusTextBox.Text);
+            _fahrenheit = _celcius * 9 / 5 + 32;
+
+            celciusToFahreinheitSlider.Minimum = _celcius;
+            celciusToFahreinheitSlider.Maximum = _fahrenheit;
+
+            resultCelciusToFahrenheitLabel.Content = Convert.ToString(_fahrenheit);
+
+        }
+
+        private void celciusToFahreinheitSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            celciusToFahreinheitSlider.Minimum = _celcius;
+            celciusToFahreinheitSlider.Maximum = _fahrenheit;
         }
     }
 }
