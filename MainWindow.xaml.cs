@@ -36,6 +36,9 @@ namespace PractiseAss
             verticalLabel.Content = Convert.ToString(verticalSlider.Value);
             horizontalLabel.Content = Convert.ToString(horizontalSlider.Value);
 
+            incomeSlider.Minimum = 0;
+            incomeSlider.Maximum = 100000;
+
             CreateEllipse();
 
             _number = 1;
@@ -393,6 +396,97 @@ namespace PractiseAss
         {
             celciusToFahreinheitSlider.Minimum = _celcius;
             celciusToFahreinheitSlider.Maximum = _fahrenheit;
+        }
+
+        private string _result;
+        private void checkAgeForFulltimeWorkButton_Click(object sender, RoutedEventArgs e)
+        {
+            int age;
+
+            age = Convert.ToInt32(yourAgeTextBox.Text);
+
+            CalculateIfAgeIsFulltime(age);
+
+        }
+
+        private void CalculateIfAgeIsFulltime(int age)
+        {
+            if (age >= 16 && age <= 65)
+            {
+                _result = "can";
+            }
+            else
+            {
+                _result = "cannot";
+            }
+
+            resultToWorkLabel.Content = $"You {_result} work fulltime";
+        }
+
+        private void incomeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            CalculateIncomeSliderValue();
+        }
+
+        private void CalculateIncomeSliderValue()
+        {
+            double amount;
+            double taxes = 0;
+
+            if (incomeSlider.Value <= 10000)
+            {
+                taxes = 0;
+            }
+            if (incomeSlider.Value > 10000 && incomeSlider.Value <= 50000)
+            {
+                taxes = 20;
+            }
+            if (incomeSlider.Value > 50000)
+            {
+                taxes = 90;
+            }
+
+            amount = (incomeSlider.Value / 100) * taxes;
+            salaryAmountLabel.Content = incomeSlider.Value.ToString("F2");
+            paymentResultLabel.Content = $"Taxes you have to pay: {taxes}%";
+            calculatedTaxesLabel.Content = $"The amount is {amount:F2} dollar";
+        }
+
+        private void enterNumberToCardButton_Click(object sender, RoutedEventArgs e)
+        {
+            int enteredNumber;
+            string cardCategory = "";
+
+            enteredNumber = Convert.ToInt32(numberEnteredTextBox.Text);
+
+            sortNumberToCardCategory(enteredNumber, cardCategory);
+
+        }
+
+        private void sortNumberToCardCategory(int enteredNumber, string cardCategory)
+        {
+
+            switch (enteredNumber)
+            {
+                case 1:
+                    cardCategory = "Aces";
+                    break;
+                case 2:
+                    cardCategory = "Spades";
+                    break;
+                case 3:
+                    cardCategory = "Hearts";
+                    break;
+                case 4:
+                    cardCategory = "Diamonds";
+                    break;
+                default:
+                    cardCategory = "an illegal input!";
+                    break;
+
+            }
+
+            resultNumberToCardLabel.Content = $"Your number is {cardCategory}!";
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PractiseAss"
         mc:Ignorable="d"
-        Title="MainWindow" Height="715" Width="1060">
+        Title="MainWindow" Height="715" Width="1300">
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="22" Margin="30,39,0,0" TextWrapping="Wrap" Name="loanAmountTextBox" VerticalAlignment="Top" Width="111"/>
         <Label Content="Loan Amount" Name="loanAmountLabel" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
@@ -137,5 +137,20 @@
         <Button Content="Calculate Celcius to Fahrenheit" Name="celciusToFahreinheitButton" Click="celciusToFahreinheitButton_Click" HorizontalAlignment="Left" Margin="827,268,0,0" VerticalAlignment="Top" Width="185"/>
         <Canvas HorizontalAlignment="Left" Name="celciusToFahrenheitCanvas" Height="147" Margin="827,318,0,0" VerticalAlignment="Top" Width="197"/>
         <Slider HorizontalAlignment="Left" Name="celciusToFahreinheitSlider" ValueChanged="celciusToFahreinheitSlider_ValueChanged" Margin="827,492,0,0" VerticalAlignment="Top" Width="197" Height="26"/>
+        <Rectangle HorizontalAlignment="Left" Height="681" Margin="1051,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="216"/>
+        <TextBox HorizontalAlignment="Left" Margin="1069,47,0,0" TextWrapping="Wrap" Name="yourAgeTextBox" VerticalAlignment="Top" Width="53" Height="24"/>
+        <Label Content="Your age:" HorizontalAlignment="Left" Margin="1069,16,0,0" VerticalAlignment="Top"/>
+        <Label Content="" Name="resultToWorkLabel" HorizontalAlignment="Left" Margin="1069,81,0,0" VerticalAlignment="Top" Width="178"/>
+        <Button Content="Check age" HorizontalAlignment="Left" Name="checkAgeForFulltimeWorkButton" Click="checkAgeForFulltimeWorkButton_Click" Margin="1158,48,0,0" VerticalAlignment="Top" Width="89"/>
+        <Slider HorizontalAlignment="Left" Name="incomeSlider" ValueChanged="incomeSlider_ValueChanged" Margin="1069,118,0,0" VerticalAlignment="Top" Width="178"/>
+        <Label Content="" Name="paymentResultLabel" HorizontalAlignment="Left" Margin="1069,182,0,0" VerticalAlignment="Top" Width="178"/>
+        <Label Content="" Name="calculatedTaxesLabel" HorizontalAlignment="Left" Margin="1069,217,0,0" VerticalAlignment="Top" Width="178"/>
+        <Label Content="" Name="salaryAmountLabel" HorizontalAlignment="Left" Margin="1096,142,0,0" VerticalAlignment="Top" Width="63"/>
+        <Label Content="yearly salary" HorizontalAlignment="Left" Margin="1173,142,0,0" VerticalAlignment="Top" Width="74"/>
+        <Label Content="Pick a number between 1 and 4!" HorizontalAlignment="Left" Margin="1069,260,0,0" VerticalAlignment="Top" Width="198"/>
+        <TextBox HorizontalAlignment="Left" Margin="1134,291,0,0" TextWrapping="Wrap" Name="numberEnteredTextBox" VerticalAlignment="Top" Width="50" Height="27"/>
+        <Label Content="" Name="resultNumberToCardLabel" HorizontalAlignment="Left" Margin="1069,368,0,0" VerticalAlignment="Top" Width="178"/>
+        <Button Content="Enter number" Name="enterNumberToCardButton" Click="enterNumberToCardButton_Click" HorizontalAlignment="Left" Margin="1088,329,0,0" VerticalAlignment="Top" Width="138"/>
+
     </Grid>
 </Window>
